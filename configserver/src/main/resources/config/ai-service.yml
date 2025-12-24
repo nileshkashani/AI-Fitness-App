@@ -21,7 +21,7 @@ kafka:
     name: activity-events
 
 gemini:
-  API_KEY: AIzaSyD8X52Y04wL-s8-9ARC7fKPL4dqb9gC50w
+  API_KEY:<GEMINI_API_KEY>
 
   #  kafka:
   #    bootstrap-servers: localhost:9092
