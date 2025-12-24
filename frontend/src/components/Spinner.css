@@ -1,0 +1,31 @@
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.loader {
+  border: 4px solid #f3f3f3; /* Light gray background track */
+  border-top: 4px solid #2563EB; /* Blue spinning arc */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite; /* 1 second duration, linear timing, infinite loop */
+  margin-bottom: 10px; /* Space between spinner and text */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  color: #333;
+  font-size: 16px;
+}

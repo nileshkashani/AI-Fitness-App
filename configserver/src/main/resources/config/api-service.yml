@@ -1,0 +1,58 @@
+spring:
+  application:
+    name: api-service
+
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8080/realms/master/protocol/openid-connect/certs
+
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/users/**
+        - id: activity-service
+          uri: lb://ACTIVITY-SERVICE
+          predicates:
+            - Path=/activity/**
+        - id: ai-service
+          uri: lb://AI-SERVICE
+          predicates:
+              - Path=/ai/**
+#    globalcors:
+#      add-to-simple-url-handler-mapping: true
+#      corsConfigurations:
+#        '[/**]':
+#          allowedOrigins:
+#            - http://localhost:5173
+#          allowedMethods:
+#            - GET
+#            - POST
+#            - PUT
+#            - DELETE
+#            - OPTIONS
+#          allowedHeaders:
+#            - "*"
+#          allowCredentials: true
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 9090
+
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.security: DEBUG
+    reactor.core: DEBUG
+    reactor.netty: DEBUG

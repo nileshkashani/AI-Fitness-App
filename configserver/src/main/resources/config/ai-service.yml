@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: ai-service
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/aiRecomendations
+      database: aiRecomendations
+server:
+  port: 8082
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+
+kafka:
+  topic:
+    name: activity-events
+
+gemini:
+  API_KEY: AIzaSyD8X52Y04wL-s8-9ARC7fKPL4dqb9gC50w
+
+  #  kafka:
+  #    bootstrap-servers: localhost:9092
+  #    consumer:
+  #      group-id: activity-processor-group
+  #      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  #      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+  #      properties:
+  #        spring.json.use.type.headers: false
+  #        spring.json.value.default.type: com.ai_activity.aiService.model.ActivityModel
+  #        spring.json.trusted.packages: "*"
